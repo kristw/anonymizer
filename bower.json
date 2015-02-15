@@ -1,0 +1,28 @@
+{
+  "name": "anonymizer",
+  "version": "0.1.1",
+  "homepage": "https://github.com/kristw/anonymizer",
+  "authors": [
+    "Krist Wongsuphasawat <krist.wongz@gmail.com>"
+  ],
+  "description": "An easy way to anonymize your json. This utility can remove all field names from javascript objects.",
+  "main": "src/anonymizer.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "anonymizer",
+    "anonymize"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

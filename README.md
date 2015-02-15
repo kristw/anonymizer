@@ -20,6 +20,12 @@ Install with npm:
 npm install --save anonymizer
 ```
 
+or bower
+
+```
+bower install --save anonymizer
+```
+
 ## Usage
 
 ```
