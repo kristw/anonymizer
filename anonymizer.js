@@ -11,15 +11,17 @@ var isObject = require('is-object');
 
 function Anonymizer(categories){
   var self = this;
-  this.categoryLookup = {};
 
   if(isArray(categories)){
-    categories.forEach(function(category, i){
-      self.categoryLookup[category] = i;
-    });
+    this.categories = categories;
+    this.categoryLookup = categories.reduce(function(obj, category, i){
+      obj[category] = i;
+      return obj;
+    }, {});
   }
   else{
     this.categories = [];
+    this.categoryLookup = {};
   }
 }
 
@@ -68,7 +70,26 @@ proto.encode = function(data, schema){
 };
 
 proto.decode = function(data, schema){
+  var self = this;
 
+  if(isArray(schema)){
+    var childSchema = isArray(schema) && schema.length > 0 ? schema[0] : null;
+    return data.map(function(row){
+      return self.decode(row, childSchema);
+    });
+  }
+  else if(isObject(schema)){
+    return Object.keys(schema).reduce(function(obj, key, i){
+      obj[key] = self.decode(data[i], schema[key]);
+      return obj;
+    }, {});
+  }
+  else if(schema==='Category'){
+    return this.getCategoryName(data);
+  }
+  else{
+    return data;
+  }
 };
 
 /**
