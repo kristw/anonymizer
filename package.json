@@ -1,7 +1,7 @@
 {
   "name": "anonymizer",
   "description": "An easy way to anonymize your json. This utility can remove all field names from javascript objects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/anonymizer.js",
   "devDependencies": {
     "chai": "*",
