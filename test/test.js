@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Anonymizer = require('../anonymizer.js');
+var Anonymizer = require('../src/anonymizer.js');
 
 describe('anonymizer', function () {
 

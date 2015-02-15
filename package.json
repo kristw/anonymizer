@@ -2,17 +2,19 @@
   "name": "anonymizer",
   "description": "A utility to remove all field names from json",
   "version": "0.1.0",
-  "main": "anonymizer.js",
+  "main": "src/anonymizer.js",
   "devDependencies": {
-    "browserify": "^8.1.3",
     "chai": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "uglify-js": "*"
   },
+  "author": {
+    "name": "Krist Wongsuphasawat",
+    "email": "krist.wongz@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
-    "test": "mocha --no-colors --reporter spec"
-  },
-  "dependencies": {
-    "is-object": "^1.0.1",
-    "isarray": "0.0.1"
+    "test": "mocha --no-colors --reporter spec",
+    "prepublish": "uglifyjs src/anonymizer.js -m -c > src/anonymizer.min.js"
   }
 }
