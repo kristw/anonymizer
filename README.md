@@ -12,7 +12,7 @@ This **anonymizer** was built for that purpose:
 
 The library is also very lightweight (raw 3KB, minified 1KB) and supports CommonJS, AMD (RequireJS) as well as browser use.
 
-## Installation
+## 1. Installation
 
 Install with npm:
 
@@ -26,15 +26,15 @@ or bower
 bower install --save anonymizer
 ```
 
-## Usage
+## 2. Usage
 
 ```
 var anonymizer = new Anonymizer();
 ```
 
-### Basic
+### 2.1 Basic
 
-#### anonymizer.encode(data [,schema])
+#### anonymizer.encode(data, schema)
 ```
 anonymizer.encode(
   {a: 1, b: true, c: 'test'},
@@ -49,7 +49,7 @@ anonymizer.encode(
 => [ [1, true, 'test'], [2, false, 'test2'] ]
 ```
 
-#### anonymizer.decode(data [,schema])
+#### anonymizer.decode(data, schema)
 ```
 anonymizer.decode(
   [1, true, 'test'],
@@ -64,7 +64,7 @@ anonymizer.decode(
 => [{a: 1, b: true, c: 'test'}, {a: 2, b: false, c: 'test2'}]
 ```
 
-### Categorical values
+### 2.2 Categorical values
 
 Anonymizer can map categorical values to/from integers.
 
@@ -88,7 +88,7 @@ anonymizer2.decode([1, 2, 1]);
 => ['test', 'test2', 'test']
 ```
 
-## Schema definition
+## 3. Schema definition
 
 **Primitive values**
 Use string
@@ -165,7 +165,7 @@ Object that contains an array
 ```
 
 
-## Testing
+## 4. Testing
 
 From the repo root:
 

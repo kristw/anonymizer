@@ -5,7 +5,7 @@ var Anonymizer = require('../src/anonymizer.js');
 
 describe('anonymizer', function () {
 
-  describe('#encode(data [,schema])', function(){
+  describe('#encode(data, schema)', function(){
     it('can encode primitive values', function () {
       var anonymizer = new Anonymizer();
 
@@ -138,7 +138,7 @@ describe('anonymizer', function () {
 
   });
 
-  describe('#decode(data [,schema])', function(){
+  describe('#decode(data, schema)', function(){
     it('can decode primitive values', function () {
       var anonymizer = new Anonymizer();
 
