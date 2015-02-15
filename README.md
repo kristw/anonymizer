@@ -51,7 +51,7 @@ anonymizer.decode(
 
 ### Categorical values
 
-Anonymizer can map categorical values to/from integer.
+Anonymizer can map categorical values to/from integers.
 
 ```
 anonymizer.encode('test', 'Category');
