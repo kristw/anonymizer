@@ -66,7 +66,7 @@ Anonymizer can map categorical values to/from integers.
 anonymizer.encode('test', 'Category');
 => 1
 
-anonymizer.encode(['test', 'test2', 'test'], 'Category');
+anonymizer.encode(['test', 'test2', 'test'], ['Category']);
 => [1, 2, 1]
 
 anonymizer.getCategories();
@@ -81,6 +81,51 @@ anonymizer2.decode(1);
 anonymizer2.decode([1, 2, 1]);
 => ['test', 'test2', 'test']
 ```
+
+## Schema definition
+
+**Primitive values**
+Use string
+
+```
+2
+=> schema = 'Number'
+'test value'
+=> 'String'
+true
+=> schema = 'Boolean'
+```
+
+**Categorical values**
+Use string "Categorical"
+
+```
+'category1'
+=> schema = 'Categorical'
+```
+
+**Object**
+Use curly braces and contain all the keys that you want to export. The value for each key is the type for that field.
+
+```
+{a: 1, b:'test', c: true}
+=> schema = {a: 'Number', b: 'String', c: 'Boolean'}
+```
+
+**Array**
+Use square brackets and contains the type of an element. This library assume that all children of an array are of the same type, so you will define the schema for the child only once.
+
+```
+[1, 2, 3]
+=> schema = ['Number']
+['test1', 'test2']
+=> schema = ['String']
+['category1', 'category2']
+=> schema = ['Category']
+```
+
+**Nesting**
+You can combine the syntax above to define any schema for you data
 
 ## Testing
 
