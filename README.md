@@ -131,7 +131,39 @@ Use square brackets and contains the type of an element. This library assume tha
 ```
 
 **Nesting**
-You can combine the syntax above to define any schema for you data
+You can combine the syntax above to define any schema for you data.
+
+Array of objects
+
+```
+[
+  {a: 1, b: true, c: 'test'},
+  {a: 2, b: false, c: 'test2'}
+]
+=> schema = [{a: 'Number', b: 'Boolean', c: 'String'}]
+```
+
+Array of arrays
+
+```
+[
+  [1, 2, 3],
+  ['a', 'b', 'c']
+]
+=> schema = [['Number'], ['String']]
+```
+
+Object that contains an array
+
+```
+{
+  a: [1, 2, 3],
+  b: ['a','b','c'],
+  c: 'test'
+}
+=> schema = {a: ['Number'], b: ['String'], c: 'String'}
+```
+
 
 ## Testing
 
