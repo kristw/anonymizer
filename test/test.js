@@ -25,10 +25,24 @@ describe('anonymizer', function () {
       expect(anonymizer.encode(null)).to.deep.equal(null);
     });
 
+    it('can encode string', function () {
+      var anonymizer = new Anonymizer();
+
+      expect(anonymizer.encode('abc', 'String')).to.equal('abc');
+    });
+
+    it('can encode number', function () {
+      var anonymizer = new Anonymizer();
+
+      expect(anonymizer.encode('1', 'Number')).to.equal(1);
+      expect(anonymizer.encode('11.11', 'number')).to.equal(11.11);
+    });
+
     it('can encode categorical values', function () {
       var anonymizer = new Anonymizer();
 
       expect(anonymizer.encode('a', 'Category')).to.equal(1);
+      expect(anonymizer.encode('a', 'category')).to.equal(1);
       expect(anonymizer.encode(['a','b','a'], ['Category'])).to.deep.equal([1, 2, 1]);
     });
 

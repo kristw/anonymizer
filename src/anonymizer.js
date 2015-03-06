@@ -83,9 +83,9 @@ proto.encode = function(data, schema){
   var self = this;
 
   if(isArray(data)){
-    var childSchema = isArray(schema) && schema.length > 0 ? schema[0] : null;
-    return data.map(function(row){
-      return self.encode(row, childSchema);
+    var childSchema = (schema.length > 0) ? schema[0] : null;
+    return data.map(function(row, i){
+      return self.encode(row, i<schema.length ? schema[i] : childSchema);
     });
   }
   else if(isObject(data)){
@@ -94,8 +94,11 @@ proto.encode = function(data, schema){
       return self.encode(data[key], schema[key]);
     });
   }
-  else if(schema==='Category'){
+  else if(schema==='Category' || schema==='category'){
     return this.getCategoryCode(data);
+  }
+  else if(schema==='Number' || schema==='number'){
+    return +data;
   }
   else{
     return data;
@@ -106,9 +109,9 @@ proto.decode = function(data, schema){
   var self = this;
 
   if(isArray(schema)){
-    var childSchema = (isArray(schema) && schema.length > 0) ? schema[0] : null;
-    return data.map(function(row){
-      return self.decode(row, childSchema);
+    var childSchema = (schema.length > 0) ? schema[0] : null;
+    return data.map(function(row, i){
+      return self.decode(row, i<schema.length ? schema[i] : childSchema);
     });
   }
   else if(isObject(schema)){
@@ -117,7 +120,7 @@ proto.decode = function(data, schema){
       return obj;
     }, {});
   }
-  else if(schema==='Category'){
+  else if(schema==='Category' || schema==='category'){
     return this.getCategoryName(data);
   }
   else{
