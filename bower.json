@@ -6,7 +6,7 @@
     "Krist Wongsuphasawat <krist.wongz@gmail.com>"
   ],
   "description": "An easy way to anonymize your json. This utility can remove all field names from javascript objects.",
-  "main": "src/anonymizer.js",
+  "main": "dist/anonymizer.min.js",
   "moduleType": [
     "amd",
     "es6",

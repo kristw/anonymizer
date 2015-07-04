@@ -2,11 +2,20 @@
   "name": "anonymizer",
   "description": "An easy way to anonymize your json. This utility can remove all field names from javascript objects.",
   "version": "0.1.2",
-  "main": "src/anonymizer.js",
+  "main": "dist/anonymizer.min.js",
   "devDependencies": {
     "chai": "*",
     "mocha": "*",
-    "uglify-js": "*"
+    "uglify-js": "*",
+    "grunt": "~0.4.2",
+    "grunt-bump": "^0.3.1",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-shell": "^1.1.2",
+    "load-grunt-tasks": "~0.3.0",
+    "time-grunt": "~0.2.9"
   },
   "author": {
     "name": "Krist Wongsuphasawat",
@@ -14,7 +23,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "mocha --no-colors --reporter spec",
-    "prepublish": "uglifyjs src/anonymizer.js -m -c > src/anonymizer.min.js"
+    "test": "mocha --no-colors --reporter spec"
   }
 }
