@@ -25,7 +25,6 @@
     "build": "grunt build",
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
-    "postversion": "pkgfiles",
-    "prepublish": "git push ; git push --tags"
+    "postversion": "git push ; git push --tags; pkgfiles"
   }
 }
